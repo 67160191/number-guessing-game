@@ -95,3 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
+
+let timeLeft = 60;
+const timerEl = document.getElementById("timer");
+
+const countdown = setInterval(() => {
+  timeLeft--;
+  timerEl.innerText = timeLeft;
+
+  if (timeLeft <= 0) {
+    clearInterval(countdown);
+    alert("หมดเวลา! เกมจบ");
+    disableInput();
+  }
+}, 1000);
+
+function endGame() {
+  document.getElementById("guess").disabled = true;
+  document.getElementById("btnGuess").disabled = true;
+}
